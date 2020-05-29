@@ -193,8 +193,10 @@ $(".main-wrap > .bt-next").click(onMainNext);
 
 $("section").imagesLoaded(onResize);
 
-/* $('.class-wrap .classes').masonry({
-  itemSelector: '.class',
-  columnWidth: '.class-sizer',
-  percentPosition: true
-}) */
+var $masonry = $('.classes').imagesLoaded(function(){
+	$masonry.masonry({
+		itemSelector: '.class',
+		columnWidth: '.class-sizer',
+		percentPosition: true
+});
+}); //masonry 쓸때 부모에 padding값이 1이라도 들어가있으면 masonry가 먹질 않는다.**
