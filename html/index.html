@@ -14,6 +14,7 @@
 	<script src="../js/imagesloaded.pkgd.min.js"></script>
 	<script src="../js/masonry.pkgd.min.js"></script>
 	<script src="../js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -95,13 +96,13 @@
 			<div class="pagers"></div>
 		</section><!-- main-wrap -->
 
-		<section class="ad-wrap clear">
+		<section class="ad-wrap">
 			<article class="ad clear">
 				<div class="icon">
 					<i class="fa fa-dumbbell"></i>
 				</div>
 				<div class="content">
-					<div class="title">GET IN SHAPE NOW<span>.</span></div>
+					<div class="title">GET IN SHAPE NOW.</div>
 					<div class="desc">Lorem ipsum dolor sit amet, consec olor etscing elit. Aenget dolor.</div>
 				</div>
 			</article>
@@ -124,21 +125,29 @@
 				</div>
 			</article>
 		</section><!-- ad-wrap -->
+
 		<section class="welcome-wrap">
 			<div class="welcome wrapper-small">
-				<h2 class="title">WELCOME TO THE ENFOLD-GYM<spane class="red-dot">.</spane>
+				<h2 class="title">
+					WELCOME TO THE ENFOLD-GYM<span class="red-dot">.</span>
 				</h2>
-				<p class="desc">Enfold Gym leads the fitness industry when it comes to helping people reach their fitness goals.
-					We have Crossfit courses, a full weight room, multiple cardio areas, personal trainings, group classes, and
-					more!</p>
-				<button class="bt-more">LEARN MORE<i class="fa fa-angle-right"></i></button>
+				<p class="desc">
+					Enfold Gym leads the fitness industry when it comes to helping people reach their fitness goals. We have
+					Crossfit courses, a full weight room, multiple cardio areas, personal trainings, group classes, and more!
+				</p>
+				<button class="bt-more">
+					LEARN MORE <i class="fa fa-angle-right"></i>
+				</button>
 			</div>
-		</section> <!-- welcome-wrap -->
+		</section><!-- welcome-wrap -->
+
 		<section class="class-wrap">
 			<div class="wrapper-small">
-				<h2 class="title">CLASSES TO TAKE IN OUR GYM<span class="red-dot">.</span></h2>
+				<h2 class="title">CLASSES TO TAKE IN OUR GYM<i class="red-dot">.</i></h2>
 				<p class="desc">We offer a multitude of fun and motivating classes that allow you to work out alone or with
-					friends. Our trainers are highly educated and will make sure you give your all.<br> The classes are:</p>
+					friends. Our trainers are highly educated and will make sure you give your all.<br>
+					The classes are:
+				</p>
 			</div>
 			<div class="class-items">
 				<ul class="classes clear">
@@ -149,7 +158,7 @@
 					</li>
 					<li class="class">
 						<img src="../img/hero-4-705x338.jpg" class="imgv">
-						<h3 class="title">COSSFIT</h3>
+						<h3 class="title">CROSSFIT</h3>
 					</li>
 					<li class="class">
 						<img src="../img/hero-6-705x338.jpg" class="imgv">
@@ -161,7 +170,7 @@
 					</li>
 					<li class="class">
 						<img src="../img/hero-5-705x338.jpg" class="imgv">
-						<h3 class="title">RUNNING&SPINNING</h3>
+						<h3 class="title">RUNNING & SPINNING</h3>
 					</li>
 					<li class="class">
 						<img src="../img/hero-1-705x338.jpg" class="imgv">
@@ -170,6 +179,50 @@
 				</ul>
 			</div>
 		</section><!-- class-wrap -->
+
+		<section class="contact-wrap wrapper-small">
+			<h2 class="title">SUBSCRIBE TO OUR NEWSLETTER<span class="red-dot">.</span></h2>
+			<form action="#" class="contact-form" id="contactForm">
+				<input type="hidden" name="contact_number">
+				<input type="text" class="input red w150" name="name" placeholder="Name*">
+				<input type="text" class="input orange w200" name="email" placeholder="Email*">
+				<input type="text" class="input orange w200" name="msg" placeholder="Message*">
+				<button class="button red w200">Subscribe</button>
+			</form>
+		</section><!-- contact-wrap -->
+
+		<section id="background" class="player about-wrap" data-property="{videoURL:'https://youtube.com/embed/oXdzvMLiE7Q', mute: true, showControls: false, useOnMobile: true, quality: 'highres', containment: 'self', loop: true, autoPlay: true, stopMovieOnBlur: false, startAt: 0, opacity: 0.4}">
+			<div class="wrapper-small">
+				<h2 class="title">
+					WHAT ARE YOU WAITING FOR<span class="red-dot">?</span>
+				</h2>
+				<p class="desc">
+					Enfold Gym leads the fitness industry when it comes to helping people reach their fitness goals. We have Crossfit courses, a full weight room, multiple cardio areas, personal trainings, group classes, and more!
+				</p>
+				<div class="icon-wrap clear">
+					<div class="icons">
+						<div class="icon"><i class="fa fa-dumbbell"></i></div>
+						<div class="desc">GROW <span class="red-dot">STRONGER</span></div>
+					</div>
+					<div class="icons">
+						<div class="icon"><i class="fa fa-stopwatch"></i></div>
+						<div class="desc">GROW <span class="red-dot">FASTER</span></div>
+					</div>
+					<div class="icons">
+						<div class="icon"><i class="fa fa-pizza-slice"></i></div>
+						<div class="desc">EAT <span class="red-dot">HEALTHY</span></div>
+					</div>
+					<div class="icons">
+						<div class="icon"><i class="fa fa-trophy"></i></div>
+						<div class="desc">COMPETE <span class="red-dot">WITH OTHERS</span></div>
+					</div>
+					<div class="icons">
+						<div class="icon"><i class="fa fa-heartbeat"></i></div>
+						<div class="desc">IMPROVE YOUR <span class="red-dot">HEALTH</span></div>
+					</div>
+				</div><!-- icon-wrap -->
+			</div>
+		</section><!-- about-wrap -->
 	</div>
 	<script src="../js/index.js"></script>
 </body>

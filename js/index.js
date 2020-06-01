@@ -27,7 +27,12 @@ $(".section").each(function(i){
 var datas;
 var mainNow = 0;
 var mainPrev, mainNext, mainLast;
+
+
+/************ Initialize *************/
 mainAjax();
+emailjs.init('user_TROFqVnbPGZyygPAci7nt');
+$('#background').YTPlayer();
 
 
 /************ 사용자함수 *************/
@@ -101,15 +106,19 @@ function fixShow(show) {
 /************ 이벤트콜백 *************/
 function onResize() {
 	$(".main-wrap").css("margin-top", $(".header").outerHeight() + "px");
-	var classHei =	$(".class-wrap .class").eq(0).outerWidth() * 0.75;
-	$(".class-wrap .class").outerHeight(classHei);
-/*
- 	var adHei = 0;
+	var classHei = $(".class-wrap .item").eq(0).outerWidth() * 0.75;
+	$(".class-wrap .item").outerHeight(classHei);
+	/*
+	for(var i=0, adHei=0; i<$(".ad-wrap>.ad").length; i++) {
+		adHei = ($(".ad-wrap>.ad").eq(i).outerHeight() > adHei) 
+		? $(".ad-wrap>.ad").eq(i).outerHeight() 
+		: adHei;
+		console.log(adHei);
+	}
 	$(".ad-wrap > .ad").each(function(){
-	adHei =	($(this).outerHeight() > adHei) ? $(this).outerHeight() : adHei;
-});
-$(".ad-wrap > .ad").outerHeight(adHei); 
-*/
+		$(this).outerHeight(adHei);
+	});
+	*/
 }
 
 function onNaviHover() {
@@ -179,7 +188,21 @@ function onPagerClick() {
 	$(".main-wrap > .slide").eq(1).stop().animate({"top": 0}, 500, mainInit);
 }
 
+function onMasonry(){
+	$masonry.masonry({
+		itemSelector: '.class',
+		columnWidth: '.class-sizer',
+		percentPosition: true
+	});
+}
 
+function onContact(event) {
+	event.preventDefault();
+	this.contact_number.value = Math.random() * 100000 | 0;
+	emailjs.sendForm('gmail', 'gym-temp', this);
+	alert("Subscribe 신청이 완료되었습니다.");
+	this.reset();
+}
 
 /************ 이벤트선언 *************/
 $(window).resize(onResize).trigger("resize");
@@ -193,10 +216,6 @@ $(".main-wrap > .bt-next").click(onMainNext);
 
 $("section").imagesLoaded(onResize);
 
-var $masonry = $('.classes').imagesLoaded(function(){
-	$masonry.masonry({
-		itemSelector: '.class',
-		columnWidth: '.class-sizer',
-		percentPosition: true
-});
-}); //masonry 쓸때 부모에 padding값이 1이라도 들어가있으면 masonry가 먹질 않는다.**
+var $masonry = $(".classes").imagesLoaded(onMasonry);
+
+$('#contactForm').submit(onContact);
