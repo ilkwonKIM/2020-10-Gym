@@ -32,7 +32,7 @@ var mainPrev, mainNext, mainLast;
 /************ Initialize *************/
 mainAjax();
 emailjs.init('user_TROFqVnbPGZyygPAci7nt');
-$('#background').YTPlayer();
+
 
 
 /************ 사용자함수 *************/
@@ -105,6 +105,7 @@ function fixShow(show) {
 
 /************ 이벤트콜백 *************/
 function onResize() {
+	$('#background').YTPlayer();
 	$(".main-wrap").css("margin-top", $(".header").outerHeight() + "px");
 	var classHei = $(".class-wrap .item").eq(0).outerWidth() * 0.75;
 	$(".class-wrap .item").outerHeight(classHei);
@@ -119,6 +120,33 @@ function onResize() {
 		$(this).outerHeight(adHei);
 	});
 	*/
+}
+
+var infoChk = true;
+function onScroll() {
+	var scTop = $(this).scrollTop();
+	var sum = scTop + $(this).innerHeight() - 200;
+
+	$(".ani").each(function(){
+		if(sum > $(this).offset().top){
+			if($(this).hasClass(".pers")) $(this).parent().css("perspective","400px")
+			$(this).css("animation-play-state", "running")
+		}
+	});
+
+	var obj = $(this);
+	var $span = $(this).find("span").eq(0);
+	if(sum > $(".info-wrap").offset().top && infoChk) {
+		infoChk = false;
+		$(".info-wrap").find(".title").each(function(){
+			setInterval(function(){
+				var setInterval = setInterval(function(){})
+				$(arguments[0]).html(Number($(arguments[0]).html())+ 1);
+			}, Number($(this).data("speed")),$span);
+				
+			//	$(this).data("value")
+		});
+	}
 }
 
 function onNaviHover() {
@@ -206,6 +234,7 @@ function onContact(event) {
 
 /************ 이벤트선언 *************/
 $(window).resize(onResize).trigger("resize");
+$(window).scroll(onScroll).trigger("scroll");
 
 $(".header .navi-child").hover(onNaviHover, onNaviLeave);
 $(".header .navi-bars").click(onBarClick);
